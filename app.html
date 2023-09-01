@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bangalore Home Price Prediction</title>
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="yearpicker.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="app.js"></script>
+   
+<script type="text/javascript">
+  $(document).ready(function() {
+    Transmision(); // Call the function when the document is ready
+});
+</script>
+
+</head>
+<body onload="onPageLoad()">
+	<h1 class="heading">CAR PRICE PREDEITION</h1>
+<div class="img"></div>
+<form class="form">
+
+    <div>
+        <h4>Car Make</h4>
+        <select class="location" id="car_makes_dropdown">
+            <option value="" disabled="disabled" selected="selected">Car Make</option>
+       
+        </select>
+    </div>
+    <div onload="Model()">
+      <h4>Car Model</h4>
+      <select id="model" class="location">
+        <option value="" disabled="disabled" selected="selected">Car model</option>
+      </select>
+    </div>
+    <h4>Average Mileage</h4>
+    <input class="Average_m" type="text" id="mileage" class="floatLabel" name="Average_Mileage" value="1000">
+    <h4>Jayed</h4>
+    <div class="switch-field">
+        <input type="radio" id="radio-jayed-0" name="jayed" value="0"/>
+        <label for="radio-jayed-0">0</label>
+        <input type="radio" id="radio-jayed-1" name="jayed" value="1" checked/>
+        <label for="radio-jayed-1">1</label>
+        <input type="radio" id="radio-jayed-2" name="jayed" value="2"/>
+        <label for="radio-jayed-2">2</label>
+        <input type="radio" id="radio-jayed-3" name="jayed" value="3"/>
+        <label for="radio-jayed-3">3</label>
+        <input type="radio" id="radio-jayed-4" name="jayed" value="4"/>
+        <label for="radio-jayed-4">4</label>
+        <input type="radio" id="radio-Jayed-7" name="jayed" value="7"/>
+        <label for="radio-Jayed-7">7</label>
+    </div>
+</form>
+<form class="form">
+    <h4>Year Of Make</h4>
+    <div onload="year()">
+        <select class="location" id="year">
+            <option value="" disabled="disabled" selected="selected">Year</option>
+        </select>
+    </div>
+    <h4>Transmision</h4>
+    <div onload="Transmision()">
+        <select class="location" id="transmission">
+            <option value="" disabled="disabled" selected="selected">Transmission</option>
+        </select>
+    </div>
+    <div onload="fuel()">
+    <h4>Fuel Type</h4>
+    <select class="location" id="fuel">
+        <option value="" disabled="disabled" selected="selected">Fuel</option>
+    </select>
+</div>
+
+    <div onload="condition()">
+    <h4>Condition</h4>
+    <select class="location" id="condition">
+        <option value="" disabled="disabled" selected="selected">Condition</option>
+    </select>
+</div>
+<h4>Paint Condition</h4>
+<div onload="Paint()">
+        <select id="paint" class="location">
+            <option value="" disabled="disabled" selected="selected">Paint Condition</option>
+        </select>
+    </div>
+
+    <!-- we may need to add a class -->
+        <input class="form-check-input" type="checkbox" role="switch" id="touch_screen">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Touch Screen</label>
+    
+  <input class="form-check-input" type="checkbox" role="switch" id="leather_seat" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Leather Seats</label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="Apple_car" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Apple CarPlay</label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="heat_steering" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Heated Steering Wheel</label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="electric_seat_control" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Electric Seat Control</label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="lane_departure" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Lane Departure Alert</label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="radar" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Radar</label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="forward_colision" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Forward Collision Alert</label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="park_assist" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Park Assist</label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="_360camera" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">360 Camera</label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="Android" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Android Auto </label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="Rear_camera" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Rear Camera</label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="Heated_seat" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Heated Seats</label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="Folding_Miror" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Electrically Folding Mirrors</label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="sun_roof" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Sun Roof</label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="Keyless" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Keyless Entry</label>
+
+  <input class="form-check-input" type="checkbox" role="switch" id="rear_sensor" >
+  <label class="form-check-label" for="flexSwitchCheckDisabled">Rear Sensors</label>
+  
+    <div>
+    <button class="mb-2" onclick="onClickedEstimatePrice()" type="button"  >Estimate Price</button>
+    <div id="uiEstimatedPrice" class="result"><h2></h2></div>
+</form>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</body>
+</html>
